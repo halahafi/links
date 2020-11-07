@@ -15,7 +15,6 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    //pass plans here
     $products= \App\Product::all();  
     return view('welcome',['products' => $products]);
 });
@@ -23,20 +22,6 @@ Route::get('/', function () {
 Route::get('/plan_a.php','ProductController@ruleUploadSpeedLessThan100');
 Route::get('/plan_b.php','ProductController@ruleUploadSpeedLessThan100AndFiber');
 Route::get('/plan_c.php','ProductTwoController@ruleDownloadSpeedGreaterThan100AndFiber');
-
-// Route::get('/submit',function (){ 
-// return view('submit');
-// });
-
-// Route::post('/submit',function(Request $request){
-//     $data= $request->validate([
-//         'title' => 'required|max:255',
-//         'url'   => 'required|url|max:255',
-//         'description'=> 'required|max:255',
-//     ]);
-//     $links=tap(new App\Link($data))->save();
-//     return redirect('/');
-// });
 
 Auth::routes();
 
